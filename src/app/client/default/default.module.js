@@ -9,10 +9,6 @@ function config($stateProvider) {
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: 'default/views/home.view.html'
-        })
-        .state('contact', {
-            url: '/contact',
-            templateUrl: 'default/views/contact.view.html'
+            templateUrl: 'default/views/search.view.html'
         });     
 }
