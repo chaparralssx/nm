@@ -32,3 +32,4 @@ spec/results
 .settings
 .vscode
 jsconfig.json
+/.project notes.txt
