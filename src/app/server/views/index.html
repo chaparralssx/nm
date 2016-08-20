@@ -1,0 +1,21 @@
+
+<body class="brand-{{theme.key}}" ng-app="app.default">
+    <div class="ng-cloak" ng-controller="DefaultController as defaultCtrl">
+        {{>app/views/partials/masthead}}
+        <div class="container">
+            <main role="main" class="row" data-ui-view></main>
+        </div>
+        {{>app/views/partials/footer}}
+    </div>
+
+    <script src="public/app/js/vendor.min.js"></script>
+    <script src="public/app/js/application.min.js"></script>
+    <script src="public/app/js/templates.js"></script>
+
+    <!-- Theme support -->
+    <script>
+        angular.module('app.themes', []).constant('theme', {{{themeJson}}});
+        angular.module('app').constant('appSettings', {{{clientSettings}}});
+    </script>
+
+</body>

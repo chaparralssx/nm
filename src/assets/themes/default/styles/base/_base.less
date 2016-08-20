@@ -1,0 +1,61 @@
+// See https://smacss.com/book/type-base.
+
+// "Base rules are the defaults. They are almost exclusively single element selectors but it could include attribute
+// selectors, pseudo-class selectors, child selectors or sibling selectors.  Essentially, a base style says wherever
+// this element is on the page, it should look like this." -https://smacss.com/book/categorizing
+
+// "A Base rule is applied to an element using an element selector, a descendant selector, or a child selector, along
+// with any pseudo-classes.  It doesn't include any class or ID selectors.  It is defining the default styling for how
+// that element should look in all occurrences on the page." -https://smacss.com/book/categorizing
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: @font-size-base;
+}
+
+p {
+    max-width: 45em;
+    // 50-60 characters per line recommended by the Common UX Standards, but up to 75 is considered acceptable.  Per Common UX Standards 5.2.4 Text Styling (pg 19)
+    // 30 ems is about 71 average-width characters.  See http://maxdesign.com.au/articles/ideal-line-length-in-ems/
+}
+li {
+    max-width: 40em; // A little less than the p width, because lis are indented.
+}
+label {
+    max-width: 43em; // A little less than the p width, because labels are indented.
+}
+
+/* custom classes for padding/margins */
+.top-margin-2ems { margin-top: 2em; }
+.top-margin-4ems { margin-top: 4em; }
+.top-padding-2ems { padding-top: 2em; }
+.top-padding-4ems { padding-top: 4em; }
+.bottom-margin-2ems { margin-bottom: 2em; }
+.bottom-margin-4ems { margin-bottom: 4em; }
+.bottom-padding-2ems { padding-bottom: 2em; }
+.bottom-padding-4ems { padding-bottom: 4em; }
+.right-margin-2ems { margin-right: 2em; }
+.right-margin-4ems { margin-right: 4em; }
+.right-padding-2ems { padding-right: 2em; }
+.right-padding-4ems { padding-right: 4em; }
+.left-margin-2ems { margin-left: 2em; }
+.left-margin-4ems { margin-left: 4em; }
+.left-padding-2ems { padding-left: 2em; }
+.left-padding-4ems { padding-left: 4em; }
+
+img {
+    max-width: 100%;
+}
+
+.ng-cloak {
+    display: none;
+}
+
+@media screen and (max-width: @screen-xs) {
+    html,
+    body {
+        font-size: calc(@font-size-base * 1.25); // Increase font size on mobile screens for easier readability
+    } // body required because bootstrap scaffolding.less sets it to 12px.
+}

@@ -1,0 +1,34 @@
+# Build Output
+public/*
+
+# node
+.nodemonignore
+npm-debug.log
+node_modules
+
+# bower directory
+bower_components
+
+# typescript definitions
+typings
+
+# any data
+data
+.data
+.coverage
+spec/results
+*.args
+*.fileno
+*.fpr
+*.log
+
+# various ide's
+.idea
+*.sublime-*
+*.suo
+*.user
+*.csproj
+*.sln
+.settings
+.vscode
+jsconfig.json
