@@ -1,46 +1,28 @@
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-//// THE OPTUM THEME IS BASED ON
-//// Common User Experience Standards (aka Common UX Standards, CUXS)
-//// Version: October 2015
-//// WITH ADDITIONAL STYLES ACCORDING TO
-//// Optum Brand Guidelines (BG)
-//// Version: 3.0 (2015)
-//// ORIGINALLY COMPILED BY
-//// R. Scott Blamey, UI Dev, Optum Financial Portals
-///////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-
 //
 // Variables
-// --------------------------------------------------
+// This is a copy of the Bootstrap variables.less file.
+// It is used instead of the Bootstrap variables.less file,
+// which is immutable in the bower folder.  Make theme
+// changes here.
+// --------------------------------------------------------
+
 
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
 
-//////////////////////////////////////////////////////////////////
-// COMMON UX STANDARDS COLOR DEFINITIONS: 5.2.3 Color Value Scales
-// Grays from Primary Pallete
 @gray-base:              #000;
-@gray-darkest:           #333333; // Optum Dark Gray (8)
-@gray-darker:            #666666; // Optum Medium Gray (6)
-@gray-dark:              #999999; // Primary Palette Gray (4) (between Optum Medium and Light grays)
-@gray:                   #B3B3B3; // Optum Light Gray (3)
-@gray-light:             #CCCCCC; // Primary Palette Gray (2)
-@gray-lighter:           #E6E6E6; // Primary Palette Gray (1)
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-// Except for Yellow and Orange, colors from Secondary Pallete
-@brand-bright:          #F2CE66; // Yellow (3)
-@brand-light:           #EAAB00; // Optum Yellow (5)
-@brand-primary:         #F47B29; // Optum Orange (5)
-@brand-dark:            #50489A; // Purple (6)
-@brand-success:         #7E9E16; // Green (6)
-@brand-info:            #248C95; // Turquoise (6)
-@brand-warning:         @brand-primary; // Optum Orange (5)
-@brand-danger:          #A93C47; // Red (6)
-@brand-alternate:       #1370AB; // Blue (6) // Not used in Bootstrap
-@brand-heading:         #C36121; // Optum Orange (6) for H2, H3 per Common UX Standards 5.2.4 Text Styling
+@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+@brand-success:         #5cb85c;
+@brand-info:            #5bc0de;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
 
 
 //== Scaffolding
@@ -50,12 +32,12 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            #333333; // CUXS 5.2.4 Text Styling
+@text-color:            @gray-dark;
 
 //** Global textual link color.
-@link-color:            #0064A4; // CUXS 5.2.4 Text Styling
+@link-color:            @brand-primary;
 //** Link hover color set via `darken()` function.
-@link-hover-color:      #0064A4; // CUXS 5.2.4 Text Styling
+@link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
@@ -64,22 +46,22 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  Arial, Helvetica, sans-serif; // BG 2.2.6 Web Fonts
-@font-family-serif:       Georgia, "Times New Roman", Times, serif; // Never to be used with Optum brand
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          12px; // CUXS 5.2.4 Text Styling
+@font-size-base:          14px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
-@font-size-h1:            2rem; // 24px; // CUXS 5.2.4 Text Styling
-@font-size-h2:            1.333rem; // 16px; // CUXS 5.2.4 Text Styling
-@font-size-h3:            1.166rem; // 14px; // CUXS 5.2.4 Text Styling
-@font-size-h4:            1.15rem; // Arbitrary size selected by R. Scott to fit between h5 and h3
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5:            @font-size-base;
-@font-size-h6:            .85rem; // Default value; not defined in CUXS or BG
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.428571429; // 20/14
@@ -90,14 +72,15 @@
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          inherit; // Keep despite common type.less styles because bootstrap type.less references it.
+@headings-color:          inherit;
+
 
 //== Iconography
 //
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-@icon-font-path:          "/public/assets/fonts/";
+@icon-font-path:          "../fonts/";
 //** File name for all font files.
 @icon-font-name:          "glyphicons-halflings-regular";
 //** Element ID within SVG icon file.
@@ -106,33 +89,33 @@
 
 //== Components
 //
-//## Define common padding and border radius sizes and more.
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-@padding-base-vertical:     4px; // Per CUXS 5.3.11 Buttons.  Bootstrap default is 6px.  Drives button padding.
-@padding-base-horizontal:   13px; // Per CUXS 5.3.11 Buttons.  Bootstrap default is 12px.  Drives button padding.
+@padding-base-vertical:     6px;
+@padding-base-horizontal:   12px;
 
-@padding-large-vertical:    12px;
+@padding-large-vertical:    10px;
 @padding-large-horizontal:  16px;
 
-@padding-small-vertical:    4px;
-@padding-small-horizontal:  8px;
+@padding-small-vertical:    5px;
+@padding-small-horizontal:  10px;
 
-@padding-xs-vertical:       2px;
-@padding-xs-horizontal:     4px;
+@padding-xs-vertical:       1px;
+@padding-xs-horizontal:     5px;
 
 @line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:         1.5;
 
-@border-radius-base:        0; // Bootstrap default: 4px;
-@border-radius-large:       0; // Bootstrap default: 6px;
-@border-radius-small:       0; // Bootstrap default: 3px;
+@border-radius-base:        4px;
+@border-radius-large:       6px;
+@border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
 //** Global background color for active items (e.g., navs or dropdowns).
 @component-active-bg:       @brand-primary;
 
-//** Width of the `border` for generating carets that indicator dropdowns.
+//** Width of the `border` for generating carets that indicate dropdowns.
 @caret-width-base:          4px;
 //** Carets increase slightly in size for larger components.
 @caret-width-large:         5px;
@@ -143,17 +126,17 @@
 //## Customizes the `.table` component with basic values, each used across all table variations.
 
 //** Padding for `<th>`s and `<td>`s.
-@table-cell-padding:            4px; // Per CUX 5.3.9 Tables
+@table-cell-padding:            8px;
 //** Padding for cells in `.table-condensed`.
-@table-condensed-cell-padding:  2px;
+@table-condensed-cell-padding:  5px;
 
 //** Default background color used for all tables.
 @table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               #fbfbfb; // Light row stripe color per CUX, 5.3.9 Tables (pg 59).  Per CUX: "#FBFBFB is not part of our standard color palette. This use is a special case."
+@table-bg-accent:               #f9f9f9;
 //** Background color used for `.table-hover`.
-@table-bg-hover:                #fef3e8; // Per CUX, 5.3.9 Tables (pg 54)
-@table-bg-active:               #fde6d1; // Per CUX, 5.3.9 Tables (pg 54)
+@table-bg-hover:                #f5f5f5;
+@table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
 @table-border-color:            #ddd;
@@ -169,15 +152,15 @@
 @btn-default-bg:                 #fff;
 @btn-default-border:             #ccc;
 
-@btn-primary-color:              #fff; // If bg is Optum Orange (5), this must be black to pass WCAG Accessibility color contrast requirements.  Decision made 12/23/2015 to use white text and darker orange background despite lesser contrast ratio.
-@btn-primary-bg:                 @brand-heading;
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
-@btn-success-color:              #000; // Changed from white to black to pass WCAG AA when using the Optum green bg color
+@btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
-@btn-info-color:                 #000; // Changed from white to black to pass WCAG AA when using the Optum teal bg color
+@btn-info-color:                 #fff;
 @btn-info-bg:                    @brand-info;
 @btn-info-border:                darken(@btn-info-bg, 5%);
 
@@ -192,12 +175,9 @@
 @btn-link-disabled-color:        @gray-light;
 
 // Allows for customizing button radius independently from global border radius
-// @btn-border-radius-base:         @border-radius-base;
-// @btn-border-radius-large:        @border-radius-large;
-// @btn-border-radius-small:        @border-radius-small;
-@btn-border-radius-base:         0;
-@btn-border-radius-large:        0;
-@btn-border-radius-small:        0;
+@btn-border-radius-base:         @border-radius-base;
+@btn-border-radius-large:        @border-radius-large;
+@btn-border-radius-small:        @border-radius-small;
 
 
 //== Forms
@@ -210,40 +190,34 @@
 @input-bg-disabled:              @gray-lighter;
 
 //** Text color for `<input>`s
-@input-color:                    #333333; // CUXS 5.2.4 Text Styling
+@input-color:                    @gray;
 //** `<input>` border color
-@input-border:                   #B3B3B3; // CUXS 5.3.10 Forms
+@input-border:                   #ccc;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-// @input-border-radius:            @border-radius-base;
-// //** Large `.form-control` border radius
-// @input-border-radius-large:      @border-radius-large;
-// //** Small `.form-control` border radius
-// @input-border-radius-small:      @border-radius-small;
-@input-border-radius:            0;
+@input-border-radius:            @border-radius-base;
 //** Large `.form-control` border radius
-@input-border-radius-large:      0;
+@input-border-radius-large:      @border-radius-large;
 //** Small `.form-control` border radius
-@input-border-radius-small:      0;
+@input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             @brand-bright;
+@input-border-focus:             #66afe9;
 
 //** Placeholder text color
 @input-color-placeholder:        #999;
 
 //** Default `.form-control` height
-// @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2); // Bootstrap default
-@input-height-base:              20px; // BG 5.3.12 Text Input Fields
+@input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
 //** Large `.form-control` height
 @input-height-large:             (ceil(@font-size-large * @line-height-large) + (@padding-large-vertical * 2) + 2);
 //** Small `.form-control` height
 @input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
 //** `.form-group` margin
-@form-group-margin-bottom:       13px; // BG 5.3.12 Text Input Fields
+@form-group-margin-bottom:       15px;
 
 @legend-color:                   @gray-dark;
 @legend-border-color:            #e5e5e5;
@@ -262,20 +236,20 @@
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-@dropdown-bg:                    transparent; // BS default: #fff;
+@dropdown-bg:                    #fff;
 //** Dropdown menu `border-color`.
-@dropdown-border:                transparent; // BS default: rgba(0,0,0,.15);
+@dropdown-border:                rgba(0,0,0,.15);
 //** Dropdown menu `border-color` **for IE8**.
-@dropdown-fallback-border:       transparent; // BS default: #ccc;
+@dropdown-fallback-border:       #ccc;
 //** Divider color for between dropdown items.
 @dropdown-divider-bg:            #e5e5e5;
 
 //** Dropdown link text color.
-@dropdown-link-color:            @gray-darkest; // UI Toolkit (#333, which matches @gray-darkest)
+@dropdown-link-color:            @gray-dark;
 //** Hover color for dropdown links.
-@dropdown-link-hover-color:      darken(@gray-darkest, 5%);
+@dropdown-link-hover-color:      darken(@gray-dark, 5%);
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg:         transparent; // BS default: #f5f5f5;
+@dropdown-link-hover-bg:         #f5f5f5;
 
 //** Active dropdown menu item text color.
 @dropdown-link-active-color:     @component-active-color;
@@ -357,7 +331,7 @@
 @grid-gutter-width:         30px;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-xs-min;
+@grid-float-breakpoint:     @screen-sm-min;
 //** Point at which the navbar begins collapsing.
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
@@ -387,16 +361,16 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    61px;
+@navbar-height:                    50px;
 @navbar-margin-bottom:             @line-height-computed;
-@navbar-border-radius:             0; // BS default: @border-radius-base;
-@navbar-padding-horizontal:        0; // BS default: floor((@grid-gutter-width / 2));
+@navbar-border-radius:             @border-radius-base;
+@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #ffffff; // Per CUX 5.3.4 Primary Navigation (pg 36)
-@navbar-default-border:            0; // BS default: darken(@navbar-default-bg, 6.5%);
+@navbar-default-bg:                #f8f8f8;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
 @navbar-default-link-color:                #777;
@@ -421,8 +395,8 @@
 //=== Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #666666; // https://uitk.optum.com/uitk-component-showcase/html/navigationAllcomp.html.  Bootstrap default: #222;
-@navbar-inverse-border:                     none; // BS default: darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-bg:                         #222;
+@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
 @navbar-inverse-link-color:                 lighten(@gray-light, 15%);
@@ -449,7 +423,7 @@
 //##
 
 //=== Shared nav styles
-@nav-link-padding:                          10px 12px;
+@nav-link-padding:                          10px 15px;
 @nav-link-hover-bg:                         @gray-lighter;
 
 @nav-disabled-link-color:                   @gray-light;
@@ -526,21 +500,21 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text:             #333333; // Per CUX 5.5.3 Page Notifications (April 2015 version was same as border; now Gray #8)
-@state-success-bg:               #F4F7EE; // Per CUX 5.5.3 Page Notifications
-@state-success-border:           #93AE3E; // Per CUX 5.5.3 Page Notifications
+@state-success-text:             #3c763d;
+@state-success-bg:               #dff0d8;
+@state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                #333333; // Per CUX 5.5.3 Page Notifications (April 2015 version was same as border; now Gray #8)
-@state-info-bg:                  #EDF5F6; // Per CUX 5.5.3 Page Notifications
-@state-info-border:              #499FA6; // Per CUX 5.5.3 Page Notifications
+@state-info-text:                #31708f;
+@state-info-bg:                  #d9edf7;
+@state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text:             #333333; // Per CUX 5.5.3 Page Notifications (April 2015 version was same as border; now Gray #8)
-@state-warning-bg:               #FBFAE6; // Per CUX 5.5.3 Page Notifications
-@state-warning-border:           #EAAB00; // Per CUX 5.5.3 Page Notifications
+@state-warning-text:             #8a6d3b;
+@state-warning-bg:               #fcf8e3;
+@state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
 
-@state-danger-text:              #333333; // Per CUX 5.5.3 Page Notifications (April 2015 version was same as border; now Gray #8)
-@state-danger-bg:                #F8F0EF; // Per CUX 5.5.3 Page Notifications
-@state-danger-border:            #A93C47; // Per CUX 5.5.3 Page Notifications
+@state-danger-text:              #a94442;
+@state-danger-bg:                #f2dede;
+@state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
 
 
 //== Tooltips
@@ -550,13 +524,13 @@
 //** Tooltip max width
 @tooltip-max-width:           200px;
 //** Tooltip text color
-@tooltip-color:               #fff; // NOT per CUXS - required borders don't work well with Bootstrap toolitps
+@tooltip-color:               #fff;
 //** Tooltip background color
-@tooltip-bg:                  #000; // NOT per CUXS - required borders don't work well with Bootstrap toolitps
+@tooltip-bg:                  #000;
 @tooltip-opacity:             .9;
 
 //** Tooltip arrow width
-@tooltip-arrow-width:         13px; // Per CUXS 5.3.12 Tooltips.
+@tooltip-arrow-width:         5px;
 //** Tooltip arrow color
 @tooltip-arrow-color:         @tooltip-bg;
 
@@ -633,16 +607,16 @@
 @modal-content-fallback-border-color:          #999;
 
 //** Modal backdrop background color
-@modal-backdrop-bg:           #B3B3B3; // CUXS 5.5.2 Page Loading (modal)
+@modal-backdrop-bg:           #000;
 //** Modal backdrop opacity
-@modal-backdrop-opacity:      .5; // CUXS 5.5.2 Page Loading (modal)
+@modal-backdrop-opacity:      .5;
 //** Modal header border color
 @modal-header-border-color:   #e5e5e5;
 //** Modal footer border color
 @modal-footer-border-color:   @modal-header-border-color;
 
-@modal-lg:                    600px;
-@modal-md:                    346px; // CUXS 5.5.2 Page Loading (modal)
+@modal-lg:                    900px;
+@modal-md:                    600px;
 @modal-sm:                    300px;
 
 
@@ -882,7 +856,7 @@
 //** Abbreviations and acronyms border color
 @abbr-border-color:           @gray-light;
 //** Headings small color
-@headings-small-color:        @gray-darker; // Bootstrap default is @gray-light.
+@headings-small-color:        @gray-light;
 //** Blockquote small color
 @blockquote-small-color:      @gray-light;
 //** Blockquote font size
