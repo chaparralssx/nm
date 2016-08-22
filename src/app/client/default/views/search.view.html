@@ -3,29 +3,31 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>Criteria</h2>
-            <form class="form-inline">
+            <form class="form-inline" ng-submit="SearchCtrl.search()">
                 <div class="form-group">
                     <label for="search-name">Name</label>
-                    <input type="text" class="form-control" id="search-name" placeholder="e.g. &quot;University of Wisconsin&quot;">
+                    <input type="text" class="form-control" id="search-name" placeholder="e.g. &quot;University of Wisconsin&quot;" ng-model="SearchCtrl.searchName">
                 </div>
                 <div class="form-group">
                     <label for="search-country">Email</label>
-                    <input type="text" class="form-control" id="search-country" placeholder="e.g. &quot;Turkey&quot;">
+                    <input type="text" class="form-control" id="search-country" placeholder="e.g. &quot;Turkey&quot;" ng-model="SearchCtrl.searchCountry">
                 </div>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary" value="Search">Search</button>
+                <button type="button" class="btn btn-default" ng-click="SearchCtrl.reset()" value="Reset">Reset</button>
             </form>
         </div>
         <div class="col-sm-6">
             <h2>Results</h2>
-            <table class="table table-striped table-hover">
+            <p ng-hide="SearchCtrl.results.length">No matches</p>
+            <table class="table table-striped table-hover" ng-show="SearchCtrl.results.length" ng-cloak>
                 <thead>
                     <tr>
                         <th>School</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Example Name</td>
+                    <tr ng-repeat="result in SearchCtrl.results">
+                        <td><a href="{{result.web_page}}" target="_blank">{{result.name}}</a></td>
                 </tbody>
             </table>
         </div>
