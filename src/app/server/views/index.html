@@ -1,9 +1,8 @@
-
 <body class="brand-{{theme.key}}" ng-app="app.default">
     <div class="ng-cloak" ng-controller="DefaultController as defaultCtrl">
-        {{>app/views/partials/masthead}}
-        <div class="container">
-            <main role="main" class="row" data-ui-view></main>
+        {{>app/views/partials/navbar}}
+        <div class="main-content">
+            <div class="uiview" data-ui-view></div>
         </div>
         {{>app/views/partials/footer}}
     </div>
