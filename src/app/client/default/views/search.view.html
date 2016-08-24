@@ -23,17 +23,18 @@
         <div class="col-sm-8">
             <h2>Results</h2>
             <p ng-hide="SearchCtrl.results.length">No matches</p>
-            <table class="table table-striped table-hover" ng-show="SearchCtrl.results.length" ng-cloak>
+            <table class="table table-striped table-hover table-condensed" ng-show="SearchCtrl.results.length" ng-cloak>
                 <thead>
                     <tr>
                         <th>School</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="result in SearchCtrl.results">
+                    <tr ng-repeat="result in SearchCtrl.results | orderBy:'name'">
                         <td><a href="{{result.web_page}}" target="_blank">{{result.name}}</a></td>
                 </tbody>
             </table>
+            <p class="small">API Data provided by <a href="https://github.com/Hipo/university-domains-list" target="_blank">Hipo</a></p>
         </div>
     </div>
 </section>
