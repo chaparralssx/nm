@@ -1,6 +1,8 @@
+'use strict';
+
 const Hapi = require('hapi');           // A framework for building applications and services
 const config = require('./config');     // Application configuration
-// const api = require('./api');           // REST API
+const api = require('./api');           // REST API
 const app = require('./app');           // Website
 
 // Build the server
@@ -9,7 +11,7 @@ server.connection(config.server.connection);
 server.settings.app = config;
 
 // Register plugins and kick off the server
-const plugins = [app];
+const plugins = [app, api];
 server.register(plugins, err => {
     if (err) {
         throw err;

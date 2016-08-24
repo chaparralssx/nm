@@ -1,3 +1,5 @@
+'use strict';
+
 const extend = require('extend');
 const Path = require('path');
 
@@ -6,11 +8,11 @@ const Path = require('path');
  */
 const config = {
 
-    // base configuration (localhost/development)
+    // Base configuration (localhost/development)
     defaults: {
         debug: true,
 
-        // server configuration 
+        // Server configuration 
         server: {
             enableCache: false,
             staticContentPath: 'public',
@@ -22,39 +24,40 @@ const config = {
                 },
                 routes: {
                     files: {
-                        // serves static content files from this directory
+                        // Static content directory
                         relativeTo: Path.join(process.cwd(), 'public')
                     }
                 }
             }
         },
 
-        // configure external services
+        // External services
         services: {
-            gateway: {
-                host: 'https://somedomain.com:8443',
+            universitiesAPI: {
+                host: 'http://universities.hipolabs.com',
                 
-                // endpoints
-                service1: '/api/accounts/v1.0/service1',
-                
-                // authentication
-                oauthToken: '/auth/oauth/v2/token',
-                clientId: '1234567890abcdef12345678abcdef',
-                clientSecret: '1234567890abcdef12345678abcdef',
-                grantType: 'client_credentials'
+                // Endpoints
+                searchName: '/search?name={name}',
+                searchCountry: '/search?country={country}',
+                searchNameCountry: '/search?name={name}&country={country}'
             }
         },
 
-        // client settings are available in angularjs code
-        // take caution as these settings are exposed to the client
+        // Client settings are available in angularjs code
+        // These settings are exposed to the client in the template HTML
         clientSettings: {
+            api: {
+                routes: {
+                    getUniversities: 'api/universities/{country}/{name}'
+                }
+            },
             cacheKeys: {
                 lookupCache: 'lookupCache'
             }
         }
     },
 
-    // environment overrides
+    // Environment overrides
     env: {
         test: {
             debug: false,
@@ -73,18 +76,11 @@ const config = {
             server: {
                 enableCache: true
             },
-            services: {
-                gateway: {
-                    host: 'https://somedomain.com:8443',
-                    oauthToken: '/auth/oauth/v2/token',
-                    service1: '/api/accounts/v1.0/service1'
-                }
-            },
             clientSettings: {
             }
         }
     }
 };
 
-// export the configuration by environment
+// Export the configuration by environment
 module.exports = extend(true, config.defaults, config.env[process.env.NODE_ENV]);

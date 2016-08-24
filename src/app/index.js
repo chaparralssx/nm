@@ -1,9 +1,7 @@
 'use strict';
 
-const Path = require('path');
-
-// HTML rendering engine
-const vision = require('vision');
+const Path = require('path'); // NodeJS 'path' module
+const vision = require('vision'); // HTML rendering engine
 
 /**
  * Assets/CDN configuration
@@ -48,7 +46,7 @@ function register(server, options, next) {
             }
         });
 
-        // catch-all route, will serve a 404 page
+        // Catch-all route; serve the 404 page
         server.route({
             method: 'GET',
             path: '/{path*}',
@@ -61,7 +59,7 @@ function register(server, options, next) {
             }
         });
 
-        // configure server side rendering engine (vision+handlebars)
+        // Configure server side rendering engine (vision+handlebars)
         server.views({
             engines: {
                 html: require('handlebars')
@@ -80,7 +78,7 @@ function register(server, options, next) {
 exports.register = register;
 exports.register.attributes = {
     pkg: {
-        name: 'fecodeexercise',
+        name: 'universitysearch',
         version: '1.0.0'
     }
 };

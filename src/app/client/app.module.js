@@ -1,6 +1,6 @@
 'use strict';
 
-// main application module
+// Main application module
 angular.module('app', [
     'app.themes',
     'app.templates',
@@ -10,7 +10,7 @@ angular.module('app', [
 ]).config(config).run(startup);
 	
 /**
- * Configures the angular application
+ * Configure the angular application
  */
 function config($urlRouterProvider, $locationProvider, $httpProvider) {
     // Disable HTML 5 mode for theme support
@@ -19,7 +19,7 @@ function config($urlRouterProvider, $locationProvider, $httpProvider) {
     // Start at the default route
     $urlRouterProvider.otherwise('/');
     
-    // options for xsrf protection
+    // Options for xsrf protection
     $httpProvider.defaults.xsrfCookieName = 'csrf-token';
     $httpProvider.defaults.xsrfHeaderName = 'x-csrf-token';
 }
@@ -29,12 +29,7 @@ function config($urlRouterProvider, $locationProvider, $httpProvider) {
  */
 function startup($rootScope, $window, CacheFactory, appSettings) {
 
-    $rootScope.$on('$stateChangeSuccess', function () {
-        // Scroll top top of page automagically
-        $window.scrollTo(0, 0);
-    });
-
-    // Setup some default caches
+    // Setup default caches
     if(!CacheFactory.get(appSettings.cacheKeys.lookupCache)){
         CacheFactory.createCache(appSettings.cacheKeys.lookupCache, {
             maxAge: 30 * 1000 // 30 seconds
