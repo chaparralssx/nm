@@ -12,8 +12,10 @@ function SearchController(universitiesService) {
     
     vm.reset = function(){
         if(vm.loading === false){
-            // Clear results
+            // Clear results and search fields
             vm.results = [];
+            vm.searchName = undefined;
+            vm.searchCountry = undefined;
         }
     };
     vm.search = function(){
@@ -38,6 +40,9 @@ function SearchController(universitiesService) {
                     vm.results = [];
                     vm.loading = false;
                 });
+        }
+        else {
+            vm.loading = false;
         }
     }
 
