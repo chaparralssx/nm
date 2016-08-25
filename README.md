@@ -1,8 +1,8 @@
 # University Search
 
-A Front End Engineer Code Exercise.  This project uses Node, Hapi.js, and Angular.  It is built upon my ever-evolving bp-node boilerplate framework that supports multiple themes and apps within the same project.  This project example does not include unit or e2e test scripts, or form or api validation.
+A Front End Engineer Code Exercise.  This project uses Node, Hapi.js, Angular, and is automatically deployed to OpenShift when pushed to GitHub.  It is built upon my ever-evolving bp-node boilerplate framework that supports multiple themes and apps within the same project.  This project example does not include unit or e2e test scripts, or form or api validation.
 
-View the app: [web-universitysearch.44fs.preview.openshiftapps.com](http://web-universitysearch.44fs.preview.openshiftapps.com/#/)
+View the app: [universitysearch.theblameys.net/](http://universitysearch.theblameys.net/)
 
 ## Getting Started
 
