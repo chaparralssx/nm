@@ -3,7 +3,7 @@
         .make-row();
     }
     .media-group {
-        .make-sm-column(4);        
+        .make-sm-column(3);        
         padding-bottom: @padding-large-vertical;
     }
     .media-left {
@@ -13,9 +13,6 @@
     }
     .media-body {
         .media-copy {
-            font-style: italic;
-
-            // The following limits the number of lines and adds elipses
             margin-bottom: 2em;
             overflow: hidden;
             position: relative; 
@@ -43,8 +40,9 @@
             position: relative;
             &::before {
                 content: '. . .';
+                color: @gray-dark;
                 position: absolute;
-                top: -2em;
+                top: -2.25em;
             }
         }
     }
@@ -56,9 +54,19 @@
         .contact {
             .make-sm-column(4);
         }
-        .sociallinks {
+        .copyright {
             .make-sm-column(8);
             text-align: right;
+        }
+    }
+}
+
+@media (max-width: @screen-sm) {
+    .footer {
+        .legal {
+            .copyright {
+                text-align: left;
+            }
         }
     }
 }
@@ -66,5 +74,16 @@
 @media print {
     .media-component {
         display: none;
+    }
+    .footer {
+        .legal {
+            .contact,
+            .copyright {
+                .make-sm-column(12);
+            }
+            .copyright {
+                text-align: left;
+            }
+        }
     }
 }
