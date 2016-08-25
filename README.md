@@ -1,6 +1,6 @@
-# FE Code Exercise
+# University Search
 
-This is a Code Exercise project.  This project uses Node, Hapi.js, and Angular.
+A Front End Engineer Code Exercise.  This project uses Node, Hapi.js, and Angular.  It is built upon my bp-node noilerplate framework that supports multiple themes and apps within the same project.  This project example does not include unit or e2e test scripts, or form or api validation.
 
 ## Getting Started
 
