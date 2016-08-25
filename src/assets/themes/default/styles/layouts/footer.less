@@ -8,17 +8,19 @@
     }
     .media-left {
         img {
-            max-width: @padding-large-vertical;
+            max-width: 64px;
         }
     }
     .media-body {
         .media-copy {
             font-style: italic;
+
+            // The following limits the number of lines and adds elipses
             margin-bottom: 2em;
             overflow: hidden;
             position: relative; 
             line-height: 1.2em;
-            max-height: 6em;
+            max-height: 4.8em;
             margin-right: -1em;
             padding-right: 1em;
             &::before {
@@ -51,12 +53,18 @@
         .make-row();
         margin-top: @padding-base-vertical;
         padding: @padding-small-vertical 0;
-        .contact,
-        .sociallinks {
-            .make-sm-column(6);
+        .contact {
+            .make-sm-column(4);
         }
         .sociallinks {
+            .make-sm-column(8);
             text-align: right;
         }
+    }
+}
+
+@media print {
+    .media-component {
+        display: none;
     }
 }

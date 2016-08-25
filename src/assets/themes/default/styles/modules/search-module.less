@@ -1,15 +1,10 @@
 .search-module {
     .make-row();
     .search-criteria {
-        .make-sm-column(4);
+        .make-sm-column(5);
     }
     .search-results {
-        .make-sm-column(8);
-        .results {
-            .table-responsive;
-            max-height: 15.25em;
-            overflow-y: scroll;
-        }
+        .make-sm-column(7);
         table {
             background-color: white;
             thead {
@@ -20,5 +15,17 @@
     .source {
         .small;
         margin-top: @padding-base-vertical;
+    }
+}
+
+@media screen and (min-width: @screen-sm) {
+    .search-module {
+        .search-results {
+            .results {
+                .table-responsive;
+                max-height: 15.25em;
+                overflow-y: scroll;
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 .view-search {
-    .make-sm-column(8);
-    .make-sm-column-offset(4);
+    .make-lg-column(8);
+    .make-lg-column-offset(4);
     margin-top: 10rem;
     margin-bottom: 10rem;
     padding-top: 2rem;
@@ -16,5 +16,23 @@
     }
     h3 {
         border-bottom: 1px dotted @gray;
+    }
+}
+
+@media (max-width: @screen-sm) {
+    .view-search {
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media print {
+    .view-search {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 }
