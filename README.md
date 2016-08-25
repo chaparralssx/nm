@@ -61,3 +61,7 @@ $ gulp build
 ### File Changes
 
 Gulp will monitor all files for changes and recompile whenever a change is detected.
+
+
+## Deployment
+This project deploys to an OpenShift pod automatically when committed code is pushed to the GitHub repository.  [http://web-universitysearch.44fs.preview.openshiftapps.com/#/](http://web-universitysearch.44fs.preview.openshiftapps.com/#/)
