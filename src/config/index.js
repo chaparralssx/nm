@@ -18,7 +18,7 @@ const config = {
             staticContentPath: 'public',
             connection: {
                 address: process.env.OPENSHIFT_NODEJS_IP,
-                port: process.env.OPENSHIFT_NODEJS_PORT || 3100,
+                port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
                 router: {
                     stripTrailingSlash: true
                 },
