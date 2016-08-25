@@ -1,9 +1,9 @@
 {
     "key": "default",
     "isDefault": true,
-    "brandName": "International University Search",
+    "brandName": "R. Scott Blamey",
     "logo": "logo.png",
     "logoAltText": "R. Scott",
-    "favicon": "favicon.ico",
-    "url": "http://www.theblameys.net"
+    "favicon": "favicon.png",
+    "url": "https://www.linkedin.com/in/rscottblamey"
 }
