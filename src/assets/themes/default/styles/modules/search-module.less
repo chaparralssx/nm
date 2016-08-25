@@ -1,0 +1,24 @@
+.search-module {
+    .make-row();
+    .search-criteria {
+        .make-sm-column(4);
+    }
+    .search-results {
+        .make-sm-column(8);
+        .results {
+            .table-responsive;
+            max-height: 15.25em;
+            overflow-y: scroll;
+        }
+        table {
+            background-color: white;
+            thead {
+                display: none;
+            }
+        }
+    }
+    .source {
+        .small;
+        margin-top: @padding-base-vertical;
+    }
+}

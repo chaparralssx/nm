@@ -7,13 +7,20 @@ angular.module('app.default').controller('SearchController', SearchController);
  */
 function SearchController(universitiesService) {
     var vm = this;
+    vm.loading = false;
     vm.results = [];
     
     vm.reset = function(){
-        vm.results = [];
+        if(vm.loading === false){
+            // Clear results
+            vm.results = [];
+        }
     };
     vm.search = function(){
-        getUniversities(vm.searchName, vm.searchCountry);
+        if(vm.loading === false){
+            vm.loading = true;
+            getUniversities(vm.searchName, vm.searchCountry);
+        }
     };
 
     /**
@@ -25,9 +32,11 @@ function SearchController(universitiesService) {
                 .then(function(response) {
                     // Update results
                     vm.results = response.sort(sortByName);
+                    vm.loading = false;
                 }, function(){
                     // Reset results
                     vm.results = [];
+                    vm.loading = false;
                 });
         }
     }
