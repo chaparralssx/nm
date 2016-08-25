@@ -1,3 +1,12 @@
 #!/bin/bash -ex
-npm install gulp
+
+echo "---> Installing application source"
+cp -Rf /tmp/src/. ./
+
+echo "---> Building your Node application from source"
+npm install
+bower install
 gulp build
+
+# Fix source directory permissions
+fix-permissions ./
