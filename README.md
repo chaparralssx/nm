@@ -46,7 +46,7 @@ After the install process is complete, you will be able to run the application u
 $ gulp serve
 ```
 
-Your application will run on port 3100 in development. Open a browser window to [http://localhost:3100](http://localhost:3100) to see the results.
+Your application will run on port 8080 in development. Open a browser window to [http://localhost:8080](http://localhost:8080) to see the results.
 The gulp `serve` task will first compile the application before starting the server.
 
 The REST api is autodocumenting (disabled in the boilerplate by default) and the generated documentation can be found at [http://localhost:8080/api/docs](http://localhost:8080/api/docs).
