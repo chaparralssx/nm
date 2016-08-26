@@ -29,7 +29,7 @@ function register(server, options, next) {
     server.register(plugins, () => {
 
         // Register index route
-        // e.g. http://localhost:3100/
+        // e.g. http://localhost:8080/
         server.route({
             method: 'GET',
             path: '/',
